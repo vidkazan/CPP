@@ -1,20 +1,30 @@
-NAME	=	contacts
+NAME = contactBook
 
-CC	=	c++
+SRCS =	main.cpp contact.cpp phoneBook.cpp
 
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
+HDRS = main.hpp contact.hpp phoneBook.hpp
 
-SRC	=	main.cpp contact.cpp phoneBook.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+FLAGS = -O3 -Wall -Wextra -Werror -std=c++98
 
-$(NAME): $(SRC)
-	@ $(CC) $(FLAGS) $(SRC) -o $(NAME)
+COMP = c++
+
+%.o: %.cpp		$(HDRS)
+				@$(COMP) $(FLAGS) -c $< -o $@
+
+all:			$(NAME)
+
+$(NAME):		$(OBJS)
+				@$(COMP) $(FLAGS) $(OBJS) -o $@
 
 clean:
-	@ echo clean already!
+				@rm -f $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:			clean
+				@rm -f $(NAME)
 
-re: fclean all
+re:				fclean all
+
+
+.PHONY:			all clean fclean re

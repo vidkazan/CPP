@@ -1,20 +1,26 @@
-NAME=	megaphone
+NAME = megaphone
 
-CC	=	c++
+SRCS =	megaphone.cpp
 
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
+OBJS = $(SRCS:.cpp=.o)
 
-SRC	=	megaphone.cpp
+FLAGS = -O3 -Wall -Wextra -Werror -std=c++98
 
-all: $(NAME)
+COMP = c++
+%.o: %.cpp		$(HDRS)
+				@$(COMP) $(FLAGS) -c $< -o $@
 
-$(NAME): $(SRC)
-	@ $(CC) $(FLAGS) $(SRC) -o $(NAME)
+all:			$(NAME)
+
+$(NAME):		$(OBJS)
+				@$(COMP) $(FLAGS) $(OBJS) -o $@
 
 clean:
-	@ echo clean already!
+				@rm -f $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:			clean
+				@rm -f $(NAME)
 
-re: fclean all
+re:				fclean all
+
+.PHONY:			all clean fclean re val
