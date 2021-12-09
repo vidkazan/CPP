@@ -17,6 +17,8 @@ public:
 	contact();
 	~contact();
 	void	createContact();
+	bool	printContacts(unsigned int index);
+	void	printFullContact();
 	static bool	inputCheck(std::string input);
 };
 

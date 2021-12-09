@@ -3,5 +3,7 @@
 
 #include <iostream>
 #include "phoneBook.hpp"
+#include <iomanip>
+#include <string>
 
 #endif

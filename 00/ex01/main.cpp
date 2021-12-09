@@ -30,7 +30,7 @@ int main()
 				return 0;
 			else if (input == "ADD")
 				book.addContact();
-			else if (input == "SEARCH")
+			else if (input == "S")
 				book.searchContact();
 		}
 		std::cout << "Phonebook: ";
