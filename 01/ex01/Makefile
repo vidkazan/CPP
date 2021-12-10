@@ -1,6 +1,6 @@
 NAME = Zombie
 
-SRCS =	main.cpp  Zombie.cpp randomChump.cpp newZombie.cpp
+SRCS =	main.cpp  Zombie.cpp
 
 HDRS = Zombie.hpp
 
