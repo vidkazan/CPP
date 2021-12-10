@@ -4,24 +4,12 @@
 
 #include "Zombie.hpp"
 
-void randomChump( std::string name ){
-	Zombie	stack(name);
-
-	stack.announce();
-}
-
-Zombie* newZombie( std::string name ){
-	Zombie	*heap = new Zombie(name);
-
-	heap->announce();
-	return heap;
-}
-
 int main()
 {
+	int N = 10;
 	std::string heap = "Heeeeeeeeaap";
-	std::string stack = "Staaaaaaaack";
-	Zombie *zombie_heap = newZombie(heap);
-	randomChump(stack);
-	delete zombie_heap;
+	Zombie *horde = zombieHorde(N, heap);
+	for(int i=0;i<N;i++)
+		horde[i].announce();
+	delete[] horde;
 }
