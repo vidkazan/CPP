@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = Zombie2
 
 SRCS =	main.cpp
 

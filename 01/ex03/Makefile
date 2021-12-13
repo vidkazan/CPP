@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = Zombie3
 
 SRCS =	main.cpp  Weapon.cpp  HumanA.cpp  HumanB.cpp
 
