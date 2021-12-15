@@ -36,7 +36,7 @@ Fixed& Fixed::operator=(const Fixed& right){
 
 Fixed Fixed::operator+(const Fixed& right) {
 	Fixed summ;
-	summ._val = (((this->_val << 8) + (right._val << 8)) >> 8);
+	summ._val = (((this->_val << this->fractionalBits) + (right._val << this->fractionalBits)) >> this->fractionalBits);
 	return summ;
 }
 
@@ -48,13 +48,13 @@ Fixed Fixed::operator-(const Fixed& right) {
 
 Fixed Fixed::operator*(const Fixed& right) {
 	Fixed summ;
-	summ._val = ((this->_val * right._val) >> 8);
+	summ._val = ((this->_val * right._val) >> this->fractionalBits);
 	return summ;
 }
 
 Fixed Fixed::operator/(const Fixed& right) {
 	Fixed summ;
-	summ._val = (this->_val << 8) / (right._val);
+	summ._val = (this->_val << this->fractionalBits) / (right._val);
 
 	return summ;
 }
