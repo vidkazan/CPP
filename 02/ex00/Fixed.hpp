@@ -13,12 +13,8 @@ private:
 public:
 	Fixed();
 	~Fixed();
-	Fixed(Fixed& fixed);
-	Fixed& operator=(const Fixed& right){
-		std::cout << "Assignation operator called" << std::endl;
-		_val = right.getRawBits();
-		return *this;
-	}
+	Fixed(const Fixed& fixed);
+	Fixed&	operator=(const Fixed& right);
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
 };
