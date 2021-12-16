@@ -30,15 +30,17 @@ class Fixed{
 		bool	operator!=(const Fixed& right);
 		Fixed	operator++(int right);
 		Fixed&	operator++();
+		Fixed	operator--(int right);
+		Fixed&	operator--();
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
 		const static Fixed&	max(const Fixed& left, const Fixed& right);
 		const static Fixed&	min(const Fixed& left, const Fixed& right);
+		static Fixed&	max(Fixed& left, Fixed& right);
+		static Fixed&	min(Fixed& left, Fixed& right);
 		int 	getRawBits() const;
 };
 
 std::ostream& operator<<(std::ostream& o, const Fixed& rhs);
-const Fixed&	max(const Fixed& left, const Fixed& right);
-const Fixed&	min(const Fixed& left, const Fixed& right);
 
 #endif

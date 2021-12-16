@@ -4,6 +4,8 @@
 
 #include "Fixed.hpp"
 
+// Construction~Destrucion
+
 Fixed::Fixed() : _val(0){};
 
 Fixed::Fixed(const Fixed& fixed){
@@ -21,6 +23,8 @@ Fixed::Fixed(float floating){
 Fixed::~Fixed(){
 }
 
+// Convertions
+
 int Fixed::toInt() const {
 	return (_val >> fractionalBits);
 }
@@ -28,6 +32,8 @@ int Fixed::toInt() const {
 float Fixed::toFloat() const {
 	return (float(_val) / (1 << fractionalBits));
 }
+
+// Overloads
 
 Fixed& Fixed::operator=(const Fixed& right){
 	_val = right._val;
@@ -72,6 +78,19 @@ Fixed& Fixed::operator++() {
 	return *this;
 }
 
+Fixed Fixed::operator--(int right) {
+	Fixed old;
+	old._val = this->_val;
+	right = 1;
+	this->_val -= right;
+	return old;
+}
+
+Fixed& Fixed::operator--() {
+	this->_val--;
+	return *this;
+}
+
 bool Fixed::operator<(const Fixed &right) {
 	if(this->_val < right._val)
 		return true;
@@ -108,6 +127,11 @@ bool Fixed::operator!=(const Fixed &right) {
 	return false;
 }
 
+std::ostream& operator<<(std::ostream& o, const Fixed& rhs) {
+	o << rhs.toFloat();
+	return o;
+}
+
 const Fixed&	Fixed::max(const Fixed& left, const Fixed& right){
 	if(left._val > right._val)
 		return left;
@@ -120,22 +144,19 @@ const Fixed&	Fixed::min(const Fixed& left, const Fixed& right){
 	return right;
 }
 
-std::ostream& operator<<(std::ostream& o, const Fixed& rhs) {
-	o << rhs.toFloat();
-	return o;
-}
-
-const Fixed&	max(const Fixed& left, const Fixed& right){
-	if(left.getRawBits() > right.getRawBits())
+Fixed&	Fixed::max(Fixed& left, Fixed& right){
+	if(left._val > right._val)
 		return left;
 	return right;
 }
 
-const Fixed&	min(const Fixed& left, const Fixed& right){
-	if(left.getRawBits() < right.getRawBits())
+Fixed&	Fixed::min(Fixed& left, Fixed& right){
+	if(left._val < right._val)
 		return left;
 	return right;
 }
+
+// Getters
 
 int Fixed::getRawBits() const{
 	return _val;

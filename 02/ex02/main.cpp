@@ -14,5 +14,17 @@ int main( void ) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << a;
+	if(a == b)
+		std::cout << " == ";
+	else
+		std::cout << " != ";
+	std::cout << b << std::endl;
+	std::cout << a;
+	if(a <= b)
+		std::cout << " <= ";
+	else
+		std::cout << " > ";
+	std::cout << b << std::endl;
 	return 0;
 }
