@@ -2,8 +2,8 @@
 // Created by Felipe Cody on 12/9/21.
 //
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#ifndef EX01_CLAPTRAP_HPP
+#define EX01_CLAPTRAP_HPP
 #include <iostream>
 
 class ClapTrap{

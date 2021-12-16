@@ -5,10 +5,10 @@
 #include "ClapTrap.hpp"
 
 int main( void ) {
-    ClapTrap normie;
-    ClapTrap braaaainz("Braaaainz");
-    
-    braaaainz.attack("normie");
-    normie.takeDamage(0);
-    braaaainz.beRepaired(0);
+	std::cout << ">>> Clap:\n" << std::endl;
+	ClapTrap	Clap1("Clap1");
+	Clap1.attack("someone");
+	Clap1.takeDamage(10);
+	Clap1.beRepaired(10);
+	return 0;
 }

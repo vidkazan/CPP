@@ -4,39 +4,40 @@
 
 #include "ClapTrap.hpp"
 #include <string>
+#include <iomanip>
 
-ClapTrap::ClapTrap() : _name("defaultClapTrap"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-    std::cout << "Clap \""<< this->_name << "\" default constructor" << std::endl;
+ClapTrap::ClapTrap() : _name("ClapTrap"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+	std::cout << std::setw(15) <<"ClapTrap "<< std::setw(20)<< this->_name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage <<  " | default constructor" << std::endl;
 };
 
 ClapTrap::ClapTrap(const std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-    std::cout << "Clap \""<< this->_name << "\" copy constructor" << std::endl;
+	std::cout << std::setw(15) << "ClapTrap "<< std::setw(20)<< this->_name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage << " | copy constructor" << std::endl;
 };
 
 ClapTrap::~ClapTrap(){
-    std::cout << "Clap \""<< this->_name << "\" destructor" << std::endl;
+	std::cout << std::setw(15) << "ClapTrap "<< std::setw(20)<< this->_name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage<< " | destructor" << std::endl;
 };
 
 void    ClapTrap::attack(std::string const & target){
-        this->_hitPoints--;
-    std::cout << "ClapTrap " << _name << " attack " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+	this->_hitPoints--;
+	std::cout << std::setw(15) << "ClapTrap " << std::setw(20)<< _name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage<< " | attack " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
 }
 
 void    ClapTrap::takeDamage(unsigned int amount){
-    this->_energyPoints -= amount;
-    std::cout << "ClapTrap " << _name << " has taken a " << amount << " damage" << std::endl;
+	this->_energyPoints -= amount;
+	std::cout << std::setw(15) << "ClapTrap " << std::setw(20)<< _name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage << " | has taken a " << amount << " damage" << std::endl;
 }
 
 void    ClapTrap::beRepaired(unsigned int amount){
-    this->_energyPoints += amount;
-    std::cout << "ClapTrap " << _name << " has got a " << amount << " energy points" << std::endl;
+	this->_energyPoints += amount;
+	std::cout << std::setw(15) << "ClapTrap " << std::setw(20)<< _name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage<< " | has got a " << amount << " energy points" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& right){
-	std::cout << "Assignation member function called" << std::endl;
 	_name = right._name;
-    _attackDamage = right._attackDamage;
-    _energyPoints = right._energyPoints;
-    _hitPoints = right._hitPoints;
+	_attackDamage = right._attackDamage;
+	_energyPoints = right._energyPoints;
+	_hitPoints = right._hitPoints;
+	std::cout << std::setw(15) << "Assignation member function called" << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage << std::endl;
 	return *this;
 }

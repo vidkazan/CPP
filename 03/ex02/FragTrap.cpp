@@ -4,41 +4,42 @@
 
 #include "FragTrap.hpp"
 #include <string>
+#include <iomanip>
 
 FragTrap::FragTrap() {
-	_name = "defaultFragTrap";
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
-    std::cout << "Frag \""<< this->_name << "\" default constructor" << std::endl;
+	ClapTrap::_name = "FragTrap";
+	ClapTrap::_hitPoints = 100;
+	ClapTrap::_energyPoints = 100;
+	ClapTrap::_attackDamage = 30;
+	std::cout << "FragTrap "<< std::setw(10) << ClapTrap::_name << " | hitPoints " << ClapTrap::_hitPoints << " | energyPoints "<< ClapTrap::_energyPoints << " | attackDamage "<< ClapTrap::_attackDamage <<  " | default constructor" << std::endl;
 };
 
 FragTrap::FragTrap(const std::string name) {
-	_name = name;
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
-    std::cout << "Frag \""<< this->_name << "\" copy constructor" << std::endl;
+	ClapTrap::_name = name;
+	ClapTrap::_hitPoints = 100;
+	ClapTrap::_energyPoints = 100;
+	ClapTrap::_attackDamage = 30;
+	std::cout << "FragTrap " << std::setw(10) << ClapTrap::_name << " | hitPoints " << ClapTrap::_hitPoints << " | energyPoints "<< ClapTrap::_energyPoints << " | attackDamage "<< ClapTrap::_attackDamage << " | copy constructor" << std::endl;
 };
 
 FragTrap::~FragTrap(){
-    std::cout << "Frag \""<< this->_name << "\" destructor" << std::endl;
+	std::cout << "FragTrap " << std::setw(10) << ClapTrap::_name << " | hitPoints " << ClapTrap::_hitPoints << " | energyPoints "<< ClapTrap::_energyPoints << " | attackDamage "<< ClapTrap::_attackDamage<< " | destructor" << std::endl;
 };
 
 FragTrap& FragTrap::operator=(const FragTrap& right){
-	std::cout << "Frag assignation member function called" << std::endl;
-	_name = right._name;
-	_attackDamage = right._attackDamage;
-	_energyPoints = right._energyPoints;
-	_hitPoints = right._hitPoints;
+	ClapTrap::_name = right._name;
+	ClapTrap::_attackDamage = right._attackDamage;
+	ClapTrap::_energyPoints = right._energyPoints;
+	ClapTrap::_hitPoints = right._hitPoints;
+	std::cout << "Assignation member function called" << " | hitPoints " << ClapTrap::_hitPoints << " | energyPoints "<< ClapTrap::_energyPoints << " | attackDamage "<< ClapTrap::_attackDamage << std::endl;
 	return *this;
-}
-
-void		FragTrap::highFivesGuys(void){
-	std::cout << "FragTrap top five guys what...?" << std::endl;
 }
 
 void    FragTrap::attack(std::string const & target){
 	this->_hitPoints--;
-	std::cout << "FragTrap " << _name << " attack " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+	std::cout << "FragTrap " << std::setw(10) << _name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage<< " | attack " << target << ", causing " << this->_attackDamage << " points of damage !" << std::endl;
+}
+
+void FragTrap::highFivesGuys(void){
+	std::cout << "FragTrap gives high fives!" << std::endl;
 }

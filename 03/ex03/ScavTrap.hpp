@@ -9,17 +9,12 @@
 #include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap {
-	protected:
-		std::string _name;
-		int         _hitPoints;
-		int         _energyPoints;
-		int         _attackDamage;
     public:
                 	ScavTrap();
                 	ScavTrap(const std::string name);
                 	~ScavTrap();
         ScavTrap&	operator=(const ScavTrap& right);
-        void	    attack(std::string const & target);
+		void	    attack(std::string const & target);
 		void		guardGate();
 };
 

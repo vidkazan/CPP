@@ -5,16 +5,43 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-int main( void ) {
-	FragTrap	Frag1;
-	FragTrap	Frag2("Frag2");
-	std::cout << "\n";
-	Frag2.attack("Frag1");
-	Frag1.takeDamage(0);
-	Frag2.beRepaired(0);
+#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+
+
+void Clap()
+{
+	std::cout << ">>> Clap:\n" << std::endl;
+	ClapTrap	Clap1("Clap1");
+	Clap1.attack("someone");
+	Clap1.takeDamage(10);
+	Clap1.beRepaired(10);
+}
+
+void Scav()
+{
+	std::cout << ">>> Scav:\n" << std::endl;
+	ScavTrap	Scav1("Scav1");
+	Scav1.attack("someone");
+	Scav1.takeDamage(10);
+	Scav1.beRepaired(10);
+	Scav1.guardGate();
+}
+
+void Frag()
+{
+	std::cout << ">>> Frag:\n" << std::endl;
+	FragTrap	Frag1("Frag1");
+	Frag1.attack("someone");
+	Frag1.takeDamage(10);
+	Frag1.beRepaired(10);
 	Frag1.highFivesGuys();
-	std::cout << "\n";
-	FragTrap	Frag3("Frag3");
-	std::cout << "\n";
+}
+
+int main( void ) {
+	Clap();
+	Scav();
+	Frag();
 	return 0;
 }

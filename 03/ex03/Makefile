@@ -6,7 +6,7 @@ HDRS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-FLAGS = -O3 -Wall -Wextra -Werror -std=c++98
+FLAGS = -O3 -Wall -Wextra -Werror -Wshadow -std=c++98
 
 COMP = c++
 
