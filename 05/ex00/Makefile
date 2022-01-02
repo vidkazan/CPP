@@ -1,7 +1,8 @@
-NAME = 0403
+NAME = 0500
 
-SRCS =	main.cpp m04ex03.cpp
-HDRS = m04ex03.hpp
+SRCS =	main.cpp Bureaucrat.cpp
+
+HDRS = Bureaucrat.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
