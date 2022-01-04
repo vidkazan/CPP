@@ -15,11 +15,13 @@ private:
 	bool _isSigned;
 	const int _gradeToSignVal;
 	const int _gradeToExecVal;
-public:
+	bool setSign(Bureaucrat & signer);
+protected:
 	Form();
 	Form(std::string name, bool isSigned, int gradeToSignVal, int gradeToExecVal);
 	Form(Form& src);
-	~Form();
+public:
+	virtual ~Form();
 	Form& operator=(const Form& right);
 	std::string getName() const;
 	int getGradeToSignVal() const;
@@ -32,7 +34,7 @@ public:
 		virtual const char *what() const throw();
 	};
 	void beSigned(Bureaucrat &signer);
-	bool setSign(Bureaucrat & signer);
+	virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream & operator<<(std::ostream & o, const Form & right);
