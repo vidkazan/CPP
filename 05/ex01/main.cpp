@@ -3,6 +3,7 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main( void )
 {
@@ -37,6 +38,14 @@ int main( void )
 		test3->gradeIncrement();
 		std::cout << *test3 << std::endl;
 		delete test3;
+	}
+	catch(std::exception & e){
+		std::cout << e.what() << std::endl;
+	}
+
+	try
+	{
+		Form test4();
 	}
 	catch(std::exception & e){
 		std::cout << e.what() << std::endl;
