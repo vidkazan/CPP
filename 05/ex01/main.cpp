@@ -7,5 +7,14 @@
 
 int main( void )
 {
-	Bureaucrat bur1("bur1", 2);
+	try
+	{
+		Bureaucrat bur150("bur150", 150);
+		Form form1("12", false, 12,12);
+		bur150.signForm(form1);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what();
+	}
 }

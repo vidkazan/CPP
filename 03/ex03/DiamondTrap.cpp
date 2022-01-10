@@ -19,7 +19,7 @@ DiamondTrap::DiamondTrap(const std::string name) {
 	_name = name;
 	ClapTrap::_name = _name + "_clap_name";
 	_hitPoints = FragTrap::_hitPoints;
-	_energyPoints = ScavTrap::_energyPoints;
+	_energyPoints = ClapTrap::_energyPoints;
 	_attackDamage = FragTrap::_attackDamage;
 	std::cout << std::setw(15) << "DiamondTrap "<< std::setw(20)<< this->_name << " | hitPoints " << _hitPoints << " | energyPoints "<< _energyPoints << " | attackDamage "<< _attackDamage <<  " | copy constructor" << std::endl;
 };
